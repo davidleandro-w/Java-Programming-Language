@@ -1,0 +1,43 @@
+//ini adalah source code dari program untuk menghitung jumlah huruf konsonan, vokal, dan angka pada suatu kalimat
+
+package nameOfYourPackage;  // sesuaikan dengan nama package yang anda buat
+import java.util.Scanner;
+
+// sesuaikan dengan nama kelas yang anda buat
+public class VokalKonsonanAngka {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        String[] daftarVokal = {"a", "i", "u", "e", "o"};
+        String[] daftarAngka = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        String[] daftarKonso = {"b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
+                                "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"};
+
+        int vokal = 0;
+        int konsonan = 0;
+        int angka = 0;
+
+        System.out.print("Masukkan text : ");
+        String text = scan.nextLine().toLowerCase();
+
+        for(int a=0; a<text.length(); a++){
+            for (String s : daftarVokal) {
+                if (text.substring(a, a + 1).equals(s)) {
+                    vokal++;
+                }
+            }
+            for (String s : daftarAngka) {
+                if (text.substring(a, a + 1).equals(s)) {
+                    angka++;
+                }
+            }
+            for (String s : daftarKonso) {
+                if (text.substring(a, a + 1).equals(s)) {
+                    konsonan++;
+                }
+            }
+        }
+        System.out.println("Jumlah vokal : " + vokal);
+        System.out.println("Jumlah konsonan : " + konsonan);
+        System.out.println("Jumlah angka : " + angka);
+    }
+}
